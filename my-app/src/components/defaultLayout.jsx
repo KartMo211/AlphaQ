@@ -16,7 +16,6 @@ function DefaultLayout(props){
                 {props.children}
             </div>
 
-
         </div>
 
     );

@@ -8,7 +8,7 @@ import db from "../dbConnect.js"
 const router = express.Router();
 router.use(bodyParser.urlencoded({extended:true}));
 
-router.post("/loginCheck", async (req,res)=>{
+router.post("/insertTopic", async (req,res)=>{
 
     console.log(req.body);
 

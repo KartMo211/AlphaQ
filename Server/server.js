@@ -15,6 +15,9 @@ app.use(bodyParser.urlencoded({extended:true}));
 import userRoute from './Routes/usersRoute.js';
 app.use('/api/user/',userRoute);
 
+import insertTopic from './Routes/insertTopic.jsx';
+app.use('/api/topic/',insertTopic);
+
 // import transactionRoute from './routes/transactionRoute.js';
 // app.use('/api/transaction/',transactionRoute);
 

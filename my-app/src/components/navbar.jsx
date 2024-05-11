@@ -1,8 +1,23 @@
-import react from "react";
+import react,{useState,useEffect} from "react";
+
 import { Navigate } from "react-router-dom";
 import "../pages/style/navbar.css";
 
+
 function NavBar(){
+
+    const [profile,setProfile] = useState("Login");
+
+    useEffect(()=>{
+        if(localStorage.getItem("AlphaQ")){
+            setProfile(JSON.parse(localStorage.getItem("AlphaQ")));
+            console.log(profile);
+        }
+        
+    },[localStorage.getItem("AlphaQ")]);
+
+
+
     return (
         <nav className="navbar">
             <div className="containerNav">
@@ -20,7 +35,11 @@ function NavBar(){
                     <li><a href="#">Favorites</a></li>
                 </ul>
                 <div className="profile">
-                    <a href="#">Profile</a>
+                    <a href="#">
+
+                        {profile.username}
+
+                    </a>
                 </div>
             </div>
         </nav>

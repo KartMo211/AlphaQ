@@ -35,11 +35,10 @@ function Login(){
     }
     return (
         <DefaultLayout>
-            <div className="loginBackground"></div>
             <div className="loginContainer">
                 <div className="login-container">
                     <div className="login-box">
-                        <h2 className="loginH2">Welcome Back, Movie Buff!</h2>
+                        <h2 className="loginH2">Welcome Back,<br></br> Movie Buff!</h2>
                         <form className="login-form" onSubmit={getValue}>
                             <input className="loginInput" type="text" id="email" name="email" placeholder="email" required/>
                             <input className="loginInput" type="password" id="password" name="password" placeholder="Password" required/>

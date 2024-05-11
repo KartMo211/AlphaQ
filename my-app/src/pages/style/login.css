@@ -1,20 +1,19 @@
 body {
-    background-image: url('../images/loginBg.jpg');
+    /* background-image: url('../images/loginBg.jpg');
     background-size: cover;
-    background-position: center;
+    background-position: center; */
     color: #fff;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     height: 100vh;
     margin: 0;
 }
 
-.container{
-    width: 100%;
-    display: flex;
-    justify-content: center;
+.loginContainer{
+    position:absolute;
+    left:50%;
+    top:50%;
+    transform:translate(-50%,-50%);
+    min-width:500px;
 }
 
 .login-container {

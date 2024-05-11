@@ -46,3 +46,25 @@
     float: left;
     color: #999;
   }
+.chatContent{
+  max-height:50vh;
+  overflow-y:scroll;
+  margin-bottom:20px;
+}
+.chatRow{
+  display:flex;
+  gap:10px;
+  align-items:flex-start;
+  height:100%;
+
+}
+
+.chatCol:first-child{
+  width:75%;
+  margin-right:30px;
+}
+
+.chatCol:nth-child(2){
+  background-color:#b2bec3;
+  height:100%;
+}

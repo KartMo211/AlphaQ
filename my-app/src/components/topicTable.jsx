@@ -16,6 +16,8 @@ export default function TopicTable(props) {
     const {rows}=props;
 
     const [topicId,setTopicId] = React.useState(-1);
+    const [topicName,setTopicName] =React.useState("");
+    const [topicContent,setTopicContent] =React.useState("");
     const [topicModal,setTopicModal] = React.useState(false);
 
     const closeTopicModal = ()=>{
@@ -24,7 +26,7 @@ export default function TopicTable(props) {
 
   return (
     <div>
-        <Topic id={topicId} topicModal = {topicModal} closeTopicModal={closeTopicModal}/>
+        <Topic id={topicId} topicName={topicName} topicContent={topicContent} topicModal = {topicModal} closeTopicModal={closeTopicModal}/>
         <TableContainer component={Paper}>
         <Table sx={{ minWidth: 650 }} aria-label="simple table">
             <TableHead>
@@ -43,6 +45,8 @@ export default function TopicTable(props) {
                 onClick={()=> {
                     setTopicId(row.topic_id);
                     setTopicModal(true);
+                    setTopicName(row.topicname);
+                    setTopicContent(row.description);
                 } }
                 >
                 <TableCell align="center">{index+1}</TableCell>

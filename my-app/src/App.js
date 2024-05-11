@@ -2,6 +2,7 @@ import {BrowserRouter, Route, Routes, Navigate} from 'react-router-dom';
 import Home from './pages/Home';
 import Login from './pages/Login';
 import Register from './pages/Register';
+import Profile from './pages/Profile';
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
         <Routes>
 
           <Route path="/" element={<ProtectedRoute><Home/></ProtectedRoute>}/>
+          <Route path="/profile" element={<ProtectedRoute><Profile/></ProtectedRoute>}/>
           <Route path="/login" element={<UnprotectedRoute><Login/></UnprotectedRoute>}/>
           <Route path="/register" element={<UnprotectedRoute><Register/></UnprotectedRoute>}/>
 

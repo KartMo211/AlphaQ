@@ -22,7 +22,7 @@ function Login(){
         try{
         const response = await axios.post("/api/user/loginCheck",values);
         console.log(response.data);
-        localStorage.setItem('AlphaQ',JSON.stringify({email:response.data.email, username:response.data.username}));
+        localStorage.setItem('AlphaQ',JSON.stringify({userID:response.data.id,email:response.data.email, username:response.data.username}));
         message.success("You have logged in");
         navigate('/');
         }

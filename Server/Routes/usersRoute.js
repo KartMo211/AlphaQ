@@ -35,6 +35,7 @@ router.post("/loginCheck", async (req,res)=>{
 
             if (match) {
                 const user = {
+                    id: result.rows[0]._id,
                     username: result.rows[0].username,
                     email: result.rows[0].email,
                 };

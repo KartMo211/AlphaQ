@@ -32,7 +32,7 @@ function Register(){
     }
     return (
         <DefaultLayout>
-            <div class="container">
+            <div class="containerReg">
                 <div class="register-box">
                     <h2>Create Your Movie Buff Account</h2>
                     <form class="register-form" onSubmit={getValue}>

@@ -10,12 +10,14 @@ function CreateTopic(props) {
   const { isModalOpen, setShowModal } = props;
   console.log(props);
 
-  const createTopic = (values)=>{
+  const createTopic = async (values)=>{
     try{
         console.log(values);
+        const userId = JSON.parse(localStorage.getItem("AlphaQ")).userID;
 
-        await axios.post("/")
-
+        await axios.post("/api/topic/insertTopic",{...values,userId:userId});
+        message.success("You have successfully created this topic");
+        setShowModal();
     }
     catch(err){
         console.log(err.message);

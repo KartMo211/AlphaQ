@@ -68,3 +68,16 @@
   background-color:#b2bec3;
   height:100%;
 }
+
+.chatContainer h1{
+  font-size:20px;
+  margin:0;
+}
+.chatContainer h4{
+  color:#636e72;
+  margin:0;
+}
+.chatContainer p{
+  margin-top:5px;
+  margin-bottom: 10px;
+}

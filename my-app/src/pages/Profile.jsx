@@ -1,7 +1,6 @@
 import react,{useState,useEffect} from "react";
 import DefaultLayout from "../components/defaultLayout";
 import Button from '@mui/material/Button';
-import Interests from "../components/interests";
 import CreateTopic from "../components/createTopic";
 import { Form,message } from "antd";
 import axios from "axios";

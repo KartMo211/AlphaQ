@@ -43,9 +43,11 @@ router.post("/interestPost",async (req,res)=>{
     console.log(req.body);
     const {userId} = req.body;
 
+
     try{
-        await db.query("INSERT INTO posts (user_id,topic_id,content) VALUES($1,$2,$3)",[userId,topicId,post]);
-        res.status(200).json("Successfully Posted");
+        const result = await db.query("SELECT posts._id,posts.user_id,posts.topic_id,posts.content,users.username,topic.topicname FROM interests JOIN topic ON interests.topic_id = topic._id JOIN posts ON topic._id = posts.topic_id JOIN users ON posts.user_id = users._id WHERE interests.user_id = $1;",[userId]);
+        console.log(result.rows);
+        res.status(200).json(result.rows);
     }
     catch(err){
         res.status(500).json(err.message);

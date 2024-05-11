@@ -45,7 +45,7 @@ router.post("/getTopic", async (req,res)=>{
     const {userId} = req.body;
 
     try{
-        const result = await db.query("SELECT topicname,description FROM interests JOIN topic ON topic._id = interests.topic_id WHERE user_id=$1;",[userId]);
+        const result = await db.query("SELECT topic_id,topicname,description FROM interests JOIN topic ON topic._id = interests.topic_id WHERE user_id=$1;",[userId]);
         console.log(result.rows);
         res.status(200).json(result.rows);
     }

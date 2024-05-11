@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { message } from "antd";
 import DefaultLayout from "../components/defaultLayout";
 import axios from "axios";
+import NavBar from "../components/navbar";
 import "../pages/style/register.css";
 
 function Register(){
@@ -31,7 +32,8 @@ function Register(){
         
     }
     return (
-        <DefaultLayout>
+        <div>
+            <NavBar/>
             <div class="containerReg">
                 <div class="register-box">
                     <h2>Create Your Movie Buff Account</h2>
@@ -44,7 +46,7 @@ function Register(){
                     <p>Already have an account? <a href="#">Login</a></p>
                 </div>
             </div>
-        </DefaultLayout>
+        </div>
 
     );
 }

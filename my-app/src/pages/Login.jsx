@@ -4,6 +4,7 @@ import { message } from "antd";
 import axios from "axios";
 import "./style/login.css";
 import DefaultLayout from "../components/defaultLayout";
+import NavBar from "../components/navbar";
 
 function Login(){
     
@@ -34,7 +35,8 @@ function Login(){
         
     }
     return (
-        <DefaultLayout>
+        <div>
+            <NavBar/>
             <div className="loginContainer">
                 <div className="login-container">
                     <div className="login-box">
@@ -47,7 +49,7 @@ function Login(){
                     </div>
                 </div>
             </div>
-        </DefaultLayout>
+        </div>
 
     );
 }

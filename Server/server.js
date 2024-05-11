@@ -1,6 +1,5 @@
 import express from "express";
 import axios from "axios";
-// import db from './dbConnect.js'
 import env from "dotenv";
 import bodyParser from "body-parser";
 
@@ -17,6 +16,12 @@ app.use('/api/user/',userRoute);
 
 import insertTopic from './Routes/insertTopic.js';
 app.use('/api/topic/',insertTopic);
+
+import userPosts from './Routes/userPosts.js';
+app.use('/api/posts/',userPosts);
+
+import userComment from './Routes/userComment.js';
+app.use('/api/comment/',userComment);
 
 // import transactionRoute from './routes/transactionRoute.js';
 // app.use('/api/transaction/',transactionRoute);

@@ -9,10 +9,10 @@ const Topic = (props) => {
   const { topicModal, topicName, closeTopicModal, id, topicContent } = props;
 
   //fetch all the data from the posts table
+  const [comment, setComment] = useState([]);
+    const [commentId, setCommentId] = useState(-1);
 
   const [post, setPost] = useState([]);
-  const [comment, setComment] = useState([]);
-  const [commentId, setCommentId] = useState(-1);
 
   const userId = JSON.parse(localStorage.getItem("AlphaQ")).userID;
 

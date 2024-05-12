@@ -5,6 +5,7 @@ import CreateTopic from "../components/createTopic";
 import { Form ,message} from "antd";
 import Message from "../components/message";
 import Topic from "../components/topics";
+import Comment from "../components/comments";
 import axios from "axios";
 import "./style/home.css";
 
@@ -46,6 +47,12 @@ function Home(){
     const setTopic = (value)=>{
         setTopicId(value);
     }
+
+    const [commentModal,setCommentModal] = useState(false)
+    const closeCommentModal = ()=>{
+        setCommentModal(false);
+    }
+
     // const [comment, setComment] = useState([]);
     // const [commentId, setCommentId] = useState(-1);
 
@@ -77,6 +84,7 @@ function Home(){
     return (
         <DefaultLayout>
             <Topic id={topicId} topicName={topicName} topicContent={topicContent} topicModal = {topicModal} closeTopicModal={closeTopicModal}/>
+            <Comment commentModal={commentModal} setCommentModal={closeCommentModal}/>
             <h1>Posts related to your interest:</h1>
 
             <div style={{color:'black'}}>

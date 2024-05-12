@@ -1,4 +1,4 @@
-import react,{useState} from "react";
+import react,{useEffect, useState} from "react";
 import { useNavigate } from "react-router-dom";
 import { message, Form } from "antd";
 import axios from "axios";
@@ -6,23 +6,48 @@ import axios from "axios";
 import NavBar from "./navbar";
 import Button from '@mui/material/Button';
 import CreateTopic from "../components/createTopic";
+import Topic from "./topics";
 import "../pages/style/login.css";
 import "../pages/style/home.css";
 
 function DefaultLayout(props){
 
-    const [topics,setTopics] = useState(["Transformers","Pirates of the Carribean"]);
-    const [posts,setPosts] = useState(["Transformers","Pirates of the Carribean"]);
+    const [topics,setTopics] = useState([]);
 
     const [showModal,setShowModal] = useState(false);
 
+    const getSortedTopics = async()=>{
+        try{
+            const result = await axios.post("/api/topic/getSortedTopic");
+            console.log(result.data);
+            setTopics(result.data);
+        }
+        catch(err){
+            console.log(err);
+        }
+    }
+
+    useEffect(()=>{
+        getSortedTopics()
+    },[]);
+
     const closeModal = ()=>{
         setShowModal(false);
+    }
+
+    const [topicId,setTopicId] = useState(-1);
+    const [topicName,setTopicName] =useState("");
+    const [topicContent,setTopicContent] =useState("");
+    const [topicModal,setTopicModal] = useState(false);
+
+    const closeTopicModal = ()=>{
+        setTopicModal(false);
     }
     
     return (
         <div>
             <NavBar/>
+            <Topic id={topicId} topicName={topicName} topicContent={topicContent} topicModal = {topicModal} closeTopicModal={closeTopicModal}/>
 
             {showModal?<CreateTopic isModalOpen={showModal} setShowModal={closeModal}/>:<div></div>}
 
@@ -55,7 +80,12 @@ function DefaultLayout(props){
 
                     <div className="contentNav">
 
-                        {topics.map((t)=> (<span>{t}</span>))}
+                        {topics.map((t)=> (<span onClick={
+                            ()=>{
+                                setTopicId(t._id);
+                                setTopicModal(true);
+                            }
+                            }>{t.topicname}</span>))}
 
                     </div>
                 </div>

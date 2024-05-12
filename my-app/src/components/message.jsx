@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "../pages/style/chat.css";
 
 const Message = (props) => {
-  const { content, id, username, userId, topicname, getComments,setTopic,openTopicModal } = props;
+  const { content, id, username, userId, topicId, topicname, getComments,setTopic,openTopicModal } = props;
 
   const currUserId = JSON.parse(localStorage.getItem("AlphaQ")).userID;
   const src = "https://bootdey.com/img/Content/avatar/avatar3.png";
@@ -16,7 +16,7 @@ const Message = (props) => {
       />
       <h1>{username}:</h1>
       <h4 onClick={() => {
-        setTopic(id);
+        setTopic(topicId);
         openTopicModal();
         }}>{topicname}</h4>
       <p>{content}</p>

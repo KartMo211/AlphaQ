@@ -1,5 +1,5 @@
 import react,{useState} from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate,Link } from "react-router-dom";
 import { message } from "antd";
 import DefaultLayout from "../components/defaultLayout";
 import axios from "axios";
@@ -43,7 +43,7 @@ function Register(){
                         <input type="password" id="password" name="password" placeholder="Password" required/>
                         <button type="submit">Register</button>
                     </form>
-                    <p>Already have an account? <a href="#">Login</a></p>
+                    <p>Already have an account?<Link to="/login"> <a>Login</a></Link></p>
                 </div>
             </div>
         </div>

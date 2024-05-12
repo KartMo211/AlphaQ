@@ -67,6 +67,51 @@ const Topic = (props) => {
     getPosts();
   }, [id]);
 
+  const [follow,setFollow] = useState(false);
+
+  const getFollow = async()=>{
+    try {
+        const response = await axios.post("/api/interest/check", {userId: userId, topicId:id});
+        console.log(response.data);
+        if(response.data.length==0){
+            setFollow(true);
+        }
+        else{
+            setFollow(false);
+        }
+      } catch (err) {
+        console.log(err);
+        message.error(err.message);
+      }
+  }
+
+  useEffect(()=>{
+    getFollow();
+  },[topicModal]);
+
+  const followTopic = async ()=>{
+    try{
+        await axios.post("/api/interest/follow",{userId: userId,topicId:id});
+        message.success("Successfully Followed");
+        getFollow();
+    }
+    catch(err){
+        message.error(err.message);
+    }
+  }
+
+  const unfollowTopic = async ()=>{
+    try{
+        await axios.post("/api/interest/unfollow",{userId: userId,topicId:id});
+        message.success("Successfully unfollowed");
+        getFollow();
+    }
+    catch(err){
+        message.error(err.message);
+    }
+  }
+
+
   return (
     <Modal
       title="Basic Modal"
@@ -76,9 +121,14 @@ const Topic = (props) => {
       width={"800px"}
     >
       <div>
-        <p>Topic Id: {id}</p>
+ 
         <p>Topic Name: {topicName}</p>
         <p>Topic Content: {topicContent}</p>
+
+        <Button type="primary" style={{backgroundColor: follow ? "green" : "red" }} onClick={()=> follow?followTopic():unfollowTopic()}>
+            {follow?"Follow": "Unfollow"}
+        </Button>
+
       </div>
 
       <div class="chatRow">

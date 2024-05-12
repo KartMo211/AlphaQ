@@ -27,6 +27,10 @@ function Home(){
         
     }
 
+    useEffect(()=>{
+        getInterestPosts();
+    },[]);
+
     const [topicId,setTopicId] = useState(-1);
     const [topicName,setTopicName] =useState("");
     const [topicContent,setTopicContent] =useState("");
@@ -41,30 +45,53 @@ function Home(){
 
     const setTopic = (value)=>{
         setTopicId(value);
-        console.log(topicId);
-
     }
+    // const [comment, setComment] = useState([]);
+    // const [commentId, setCommentId] = useState(-1);
 
-    useEffect(()=>{
-        getInterestPosts();
-    },[]);
+    // const submitComment = async (values) => {
+    //     try {
+    //       const response = await axios.post("/api/comment/insertComment", {
+    //         ...values,
+    //         userId: userId,
+    //         postId: commentId,
+    //       });
+    //       getComments(commentId);
+    //       message.success("Successfully Commented");
+    //     } catch (err) {
+    //       message.error(err.message);
+    //     }
+    //   };
+    //   const getComments = async (id) => {
+    //     try {
+    //       const response = await axios.post("/api/comment/getComment", { id: id });
+    //       console.log(response.data);
+    //       setComment(response.data);
+    //       setCommentId(id);
+    //     } catch (err) {
+    //       message.error(err.message);
+    //     }
+    //   };
     
 
     return (
         <DefaultLayout>
             <Topic id={topicId} topicName={topicName} topicContent={topicContent} topicModal = {topicModal} closeTopicModal={closeTopicModal}/>
-
             <h1>Posts related to your interest:</h1>
 
             <div style={{color:'black'}}>
+
+                {intPost.length==0 ? "No Posts so far": ""}
+
                 {intPost.map((values)=>{
                     return (
                         <Message
                             key = {values._id}
                             content = {values.content}
-                            id = {values._id}
+                            id = {values._id} //this is the post id
                             username = {values.username}
                             userId = {values.user_id}
+                            topicId = {values.topic_id}
                             topicname = {values.topicname}
                             getComments = {(int)=>console.log("Hello")}
                             setTopic = {setTopic}

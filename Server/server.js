@@ -23,8 +23,8 @@ app.use('/api/posts/',userPosts);
 import userComment from './Routes/userComment.js';
 app.use('/api/comment/',userComment);
 
-// import transactionRoute from './routes/transactionRoute.js';
-// app.use('/api/transaction/',transactionRoute);
+import userInterest from './Routes/userInterest.js';
+app.use('/api/interest/',userInterest);
 
 
 //checks if the server is working on the port of the server

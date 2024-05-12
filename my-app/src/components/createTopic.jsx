@@ -67,7 +67,7 @@ function CreateTopic(props) {
               },
             ]}
           >
-            <Input.Password />
+            <Input />
           </Form.Item>
 
           <Form.Item

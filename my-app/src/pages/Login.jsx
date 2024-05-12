@@ -1,5 +1,5 @@
 import react,{useState} from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate,Link } from "react-router-dom";
 import { message } from "antd";
 import axios from "axios";
 import "./style/login.css";
@@ -46,6 +46,7 @@ function Login(){
                             <input className="loginInput" type="password" id="password" name="password" placeholder="Password" required/>
                             <button className="loginButton" type="submit">Login</button>
                         </form>
+                        <p>Don't have an account?<Link to="/register"> <a>Register</a></Link></p>
                     </div>
                 </div>
             </div>

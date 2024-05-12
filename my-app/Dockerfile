@@ -5,13 +5,13 @@ WORKDIR /app/frontend
 COPY package*.json ./
 RUN npm install
 COPY . .
-RUN npm run build
+# RUN npm run build
 
-FROM node:14
+# FROM node:14
 
-WORKDIR /app/frontend
+# WORKDIR /app/frontend
 
-COPY --from=build /app/frontend/build ./build
+# COPY --from=build /app/frontend/build ./build
 
 EXPOSE 3000
 

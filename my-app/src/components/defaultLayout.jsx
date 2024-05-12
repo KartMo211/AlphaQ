@@ -1,5 +1,5 @@
 import react,{useEffect, useState} from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate,Link } from "react-router-dom";
 import { message, Form } from "antd";
 import axios from "axios";
 
@@ -59,12 +59,10 @@ function DefaultLayout(props){
 
                     <div className="contentNav">
 
-                        <a>Discover</a>
-                        <a>Movies</a>
-                        <a>TV Shows</a>
-                        <a>Favorites</a>
-                        <a>Genres</a>
-                        <a>Top Rated</a>
+                        <Link to="/"><a>Discover</a></Link>
+                        <Link to="/movies"><a>Movies</a></Link>
+                        <Link to="/tv"><a>TV Shows</a></Link>
+                        <Link to="/"><a>Favorites</a></Link>
                         <a>Upcoming</a>
 
                     </div>

@@ -26,6 +26,8 @@
 }
 .contentNav a{
     margin-bottom:20px;
+    color:white;
+    text-decoration:none;
 }
 
 .contentCol h1{

@@ -17,7 +17,9 @@ function NavBar() {
     <nav className="navbar">
       <div className="containerNav">
         <div className="logo">
-          <a href="#">Movie Buff</a>
+        <Link to="/">
+          <a>Movie Buff</a>
+          </Link>
         </div>
         <div className="search-bar">
           <input type="text" placeholder="Search..." />
@@ -30,13 +32,19 @@ function NavBar() {
             </Link>
           </li>
           <li>
-            <a href="#">Movies</a>
+          <Link to="/movies">
+            <a>Movies</a>
+            </Link>
           </li>
           <li>
+          <Link to="/tv">
             <a href="#">TV Shows</a>
+          </Link>
           </li>
           <li>
+          <Link to="/">
             <a>Favorites</a>
+            </Link>
           </li>
         </ul>
         <div className="profile">

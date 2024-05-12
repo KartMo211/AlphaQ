@@ -114,7 +114,7 @@ const Topic = (props) => {
 
   return (
     <Modal
-      title="Basic Modal"
+      title="Topic"
       open={topicModal}
       onCancel={closeTopicModal}
       footer={false}
@@ -164,7 +164,7 @@ const Topic = (props) => {
               ]}
               style={{ width: "275px" }}
             >
-              <Input />
+              <Input placeholder="Enter Your thoughts for the post"/>
             </Form.Item>
 
             <Form.Item
@@ -209,7 +209,7 @@ const Topic = (props) => {
               ]}
               style={{ width: "150px" }}
             >
-              <Input />
+              <Input placeholder="comments" />
             </Form.Item>
 
             <Form.Item style={{ width: "25px" }}>

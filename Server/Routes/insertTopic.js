@@ -86,6 +86,31 @@ router.post("/getSortedTopic", async (req,res)=>{
 
 });
 
+router.post("/discover",async (req,res)=>{
+
+    console.log(req.body);
+
+    const type = req.body.type;
+    var result;
+    try{
+        switch(type){
+            case "movies":
+                result = await db.query("SELECT posts.content,posts.topic_id,posts.user_id,users.username,posts._id,topicname FROM topic JOIN posts ON posts.topic_id = topic._id JOIN users ON users._id = posts.user_id WHERE topic.type=$1 ORDER BY topic.impressions DESC;",['m']);
+                break;
+            case "tv":
+                result = await db.query("SELECT posts.content,posts.topic_id,posts.user_id,users.username,posts._id,topicname FROM topic JOIN posts ON posts.topic_id = topic._id JOIN users ON users._id = posts.user_id WHERE topic.type=$1 ORDER BY topic.impressions DESC;",['t']);
+                break;
+        }
+        console.log("hello");
+        console.log(result.rows);
+        res.status(200).json(result.rows);
+    }
+    catch(err){
+        console.log(err.message);   
+        res.status(500).json([]);
+    }
+})
+
 
 
 
